@@ -13,7 +13,7 @@ security=HTTPBasic()
 
 @app.get("/")
 def home():
-    return {"mensaje":"Bienvenido a SolicitudesREST"}
+    return {"mensaje":"¡Bienvenido a SolicitudesREST!"}
 
 async def autenticar(credenciales:HTTPBasicCredentials=Depends(security),
                db:Session=Depends(get_db))->UsuarioSalida:
