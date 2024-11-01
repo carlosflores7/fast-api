@@ -7,13 +7,23 @@ from typing import Any
 from database import get_db
 from schemas import UsuarioSalida, CalificacionesSalida, CalificacionesSalidaMes, Calificacion, CalificacionInsert, Salida, CalificacionEdit, EstudiantesSalida, CursosSalida, CiclosSalida
 import models
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 security=HTTPBasic()
 
+# Configuración de CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Cambia el origen según sea necesario
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 def home():
-    return {"mensaje":"¡Bienvenido a SolicitudesREST!"}
+    return {"mensaje":"Bienvenido a SolicitudesREST"}
 
 async def autenticar(credenciales:HTTPBasicCredentials=Depends(security),
                db:Session=Depends(get_db))->UsuarioSalida:
