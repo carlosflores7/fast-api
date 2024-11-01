@@ -15,7 +15,10 @@ security=HTTPBasic()
 # Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://fast-api-six-roan.vercel.app"],  # Cambia el origen según sea necesario
+    allow_origins=[
+        "https://fast-api-six-roan.vercel.app",  # URL del backend FastAPI (opcional)
+        "https://app-evaluacion.vercel.app"      # URL de la app frontend React
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
