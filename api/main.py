@@ -15,7 +15,7 @@ security=HTTPBasic()
 # Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Cambia el origen según sea necesario
+    allow_origins=["https://fast-api-six-roan.vercel.app"],  # Cambia el origen según sea necesario
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
